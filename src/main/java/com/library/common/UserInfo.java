@@ -1,9 +1,8 @@
 package com.library.common;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.library.enums.AccounStatusEnum;
+
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -26,6 +25,13 @@ public class UserInfo {
     private String emailAddrs;
     @Column(name = "SCREEN_NAME")
     private String screenName;
+    @Column(name = "CELLPHONE")
+    private String cellPhoneNo;
+    @Column(name = "ADDRESS")
+    private Address address;
+    @Column(name = "ACCOUNT_STATUS")
+    @Enumerated(EnumType.STRING)
+    private AccounStatusEnum accounStatusEnum;
     @Column(name = "CREATE_DATE")
     private Date createDate;
 
@@ -92,4 +98,48 @@ public class UserInfo {
     public void setCreateDate(Date createDate) {
         this.createDate = createDate;
     }
+
+    public String getCellPhoneNo() {
+        return cellPhoneNo;
+    }
+
+    public void setCellPhoneNo(String cellPhoneNo) {
+        this.cellPhoneNo = cellPhoneNo;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public AccounStatusEnum getAccounStatusEnum() {
+        return accounStatusEnum;
+    }
+
+    public void setAccounStatusEnum(AccounStatusEnum accounStatusEnum) {
+        this.accounStatusEnum = accounStatusEnum;
+    }
+
+    public String toString() {
+        final StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("UserInfo");
+        stringBuilder.append("id=").append(id);
+        stringBuilder.append("name=").append(name);
+        stringBuilder.append("surname=").append(surname);
+        stringBuilder.append("dateOfBirth=").append(dateOfbirth);
+        stringBuilder.append("gender=").append(gender);
+        stringBuilder.append("emailAddrss=").append(emailAddrs);
+        stringBuilder.append("screenName=").append(screenName);
+        stringBuilder.append("cellphone=").append(cellPhoneNo);
+        stringBuilder.append("address=").append(address);
+        stringBuilder.append("accountStatus=").append(accounStatusEnum);
+        stringBuilder.append("createDate=").append(createDate);
+
+        return stringBuilder.toString();
+    }
+
+
 }

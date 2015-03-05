@@ -7,4 +7,6 @@ import com.library.common.UserInfo;
  */
 public class Student extends UserInfo {
 
+    private long studentNo;
+
 }
